@@ -497,8 +497,8 @@ class Message(object):
             return wrapped_send('msg', '{}\n{}'.format(self.text, self.url))
 
         elif self.type == MAP:
-            return wrapped_send('msg', '{}: {}\n{}'.format(
-                self.location['poiname'], self.location['label'], self.url
+            return wrapped_send('msg', '{}: {}\nhttp://apis.map.qq.com/uri/v1/geocoder?coord={},{}'.format(
+                self.location['poiname'], self.location['label'], self.location['x'], self.location['y']
             ))
 
         elif self.type == ATTACHMENT:
